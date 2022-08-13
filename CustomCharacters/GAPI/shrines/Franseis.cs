@@ -73,7 +73,8 @@ namespace CustomCharacters
             npc.GetComponent<tk2dSpriteAnimator>().PlayForDuration("doEffect", -1, "idle");
             CharacterBuilder.StripPlayer(player);
             HandleLoadout(player);
-            HandleStats(player);
+            // Skip the stats reroll
+            //HandleStats(player);
             storedPlayer = player;
         }
 
@@ -105,16 +106,18 @@ namespace CustomCharacters
         {
             float r = Random.Range(0, 1.3f);
 
+            // Slightly modified the chances to roll for better gear
+            // Previous stats: D > .5, C > .9, B > 1.2, A > 1.25
             PickupObject.ItemQuality quality;
-            if (r < .5f)
+            if (r < .4f) // 4/13 odds
                 quality = PickupObject.ItemQuality.D;
-            else if (r < .9f)
+            else if (r < .7f) // 3/13 odds
                 quality = PickupObject.ItemQuality.C;
-            else if (r < 1.2f)
+            else if (r < .95f) // 2.5/13 odds
                 quality = PickupObject.ItemQuality.B;
-            else if (r < 1.25f)
+            else if (r < 1.18f) // 2.3/13 odds
                 quality = PickupObject.ItemQuality.A;
-            else
+            else    // 1.2/13 odds
                 quality = PickupObject.ItemQuality.S;
             var table = typeof(Gun) == typeof(T) ? GameManager.Instance.RewardManager.GunsLootTable : GameManager.Instance.RewardManager.ItemsLootTable;
             return LootEngine.GetItemOfTypeAndQuality<T>(quality, table, false);
