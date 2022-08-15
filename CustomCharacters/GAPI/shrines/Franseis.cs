@@ -208,13 +208,14 @@ namespace CustomCharacters
 
         public static Tuple<string, string>[] AllStarterGuns = new Tuple<string, string>[]
         {
-            new Tuple<string, string>("rusty_sidearm", null),
-            new Tuple<string, string>("budget_revolver", null),
-            new Tuple<string, string>("robots_right_hand", null),
-            new Tuple<string, string>("blasphemy", null),
-            new Tuple<string, string>("marine_sidearm", null),
-            new Tuple<string, string>("rogue_special", null),
-            new Tuple<string, string>("dart_gun", null)
+            new Tuple<string, string>("rusty_sidearm_alt", null),
+            new Tuple<string, string>("budget_revolver_alt", null),
+            new Tuple<string, string>("robots_right_hand_alt", null),
+            new Tuple<string, string>("blasphemy_alt", null),
+            new Tuple<string, string>("marine_sidearm_alt", null),
+            new Tuple<string, string>("rogue_special_alt", null),
+            new Tuple<string, string>("dart_gun_alt", null),
+            new Tuple<string, string>("slinger", null)
         };
 
         public static Dictionary<string, string> StatMap = new Dictionary<string, string>()
