@@ -194,8 +194,12 @@ namespace CustomCharacters
 
         private static CustomCharacterData ProcessCharacteryEntry(ZipFile zipFile, ZipEntry dataFileEntry)
         {
-            var lines = dataFileEntry.ReadAllLines();
-            var data = ParseCharacterData(lines);
+           //var lines = dataFileEntry.ReadAllLines();
+            var osr = new StreamReader(dataFileEntry.OpenReader(), Encoding.Default);
+            var lines = osr.ReadToEnd().Split(
+                new string[] { "\r\n","\r","\n"},
+                StringSplitOptions.None);
+           var data = ParseCharacterData(lines);
 
             string customCharacterDir = Path.GetDirectoryName(dataFileEntry.FileName);
             string customCharacterDirFilter = customCharacterDir + "/";
@@ -217,7 +221,10 @@ namespace CustomCharacters
                 if (!entry.FileName.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                byte[] textureData = entry.ReadAllBytes();
+               osr = new StreamReader(entry.OpenReader(), Encoding.Default);
+                var file_bytes = osr.ReadToEnd();
+                byte[] textureData = File.ReadAllBytes(file_bytes);
+
                 string fileName = Path.GetFileName(entry.FileName);
                 string resourceName = fileName.Substring(0, fileName.Length - 4);
                 Texture2D texture = ResourceExtractor.BytesToTexture(textureData, resourceName);
