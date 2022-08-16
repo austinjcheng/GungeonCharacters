@@ -26,9 +26,8 @@ namespace GungeonAPI
                 return;
 
             m_canUse = CanUse != null ? CanUse.Invoke(interactor, this.gameObject) : m_canUse;
-            // Skip this check to allow for rerolls
-            //if (!m_canUse)
-            if(false)
+
+            if (!m_canUse)
             {
                 TextBoxManager.ShowTextBox(this.talkPoint.position, this.talkPoint, 2f, "No takesies backsies!", interactor.characterAudioSpeechTag, instant: false);
                 base.spriteAnimator.PlayForDuration("talk", 2f, "idle");

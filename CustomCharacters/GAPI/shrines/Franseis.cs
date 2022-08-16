@@ -64,7 +64,8 @@ namespace CustomCharacters
 
         private static bool CanUse(PlayerController player, GameObject npc)
         {
-            return player != storedPlayer;
+            //return player != storedPlayer;
+            return true;
         }
 
         private static PlayerController storedPlayer;
@@ -210,12 +211,9 @@ namespace CustomCharacters
         {
             new Tuple<string, string>("rusty_sidearm_alt", null),
             new Tuple<string, string>("budget_revolver_alt", null),
-            new Tuple<string, string>("robots_right_hand_alt", null),
-            new Tuple<string, string>("blasphemy_alt", null),
             new Tuple<string, string>("marine_sidearm_alt", null),
             new Tuple<string, string>("rogue_special_alt", null),
-            new Tuple<string, string>("dart_gun_alt", null),
-            new Tuple<string, string>("slinger", null)
+            new Tuple<string, string>("dart_gun_alt", null)
         };
 
         public static Dictionary<string, string> StatMap = new Dictionary<string, string>()
