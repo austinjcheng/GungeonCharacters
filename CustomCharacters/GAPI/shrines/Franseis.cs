@@ -64,8 +64,7 @@ namespace CustomCharacters
 
         private static bool CanUse(PlayerController player, GameObject npc)
         {
-            //return player != storedPlayer;
-            return true;
+            return player != storedPlayer;
         }
 
         private static PlayerController storedPlayer;
@@ -98,7 +97,7 @@ namespace CustomCharacters
                 LootEngine.TryGivePrefabToPlayer(active.gameObject, player, true);
             }
             var passive = GetWeightedRandomItem<PassiveItem>();
-            passive.CanBeDropped = false;
+            passive.CanBeDropped = true;
             player.startingGunIds.Add(passive.PickupObjectId);
             LootEngine.TryGivePrefabToPlayer(passive.gameObject, player, true);
         }
@@ -209,11 +208,11 @@ namespace CustomCharacters
 
         public static Tuple<string, string>[] AllStarterGuns = new Tuple<string, string>[]
         {
-            new Tuple<string, string>("rusty_sidearm_alt", null),
-            new Tuple<string, string>("budget_revolver_alt", null),
-            new Tuple<string, string>("marine_sidearm_alt", null),
-            new Tuple<string, string>("rogue_special_alt", null),
-            new Tuple<string, string>("dart_gun_alt", null)
+            new Tuple<string, string>("rusty_sidearm", null),
+            new Tuple<string, string>("budget_revolver", null),
+            new Tuple<string, string>("marine_sidearm", null),
+            new Tuple<string, string>("rogue_special", null),
+            new Tuple<string, string>("dart_gun", null)
         };
 
         public static Dictionary<string, string> StatMap = new Dictionary<string, string>()
