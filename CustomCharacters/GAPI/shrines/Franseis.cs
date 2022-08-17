@@ -98,7 +98,7 @@ namespace CustomCharacters
             }
             var passive = GetWeightedRandomItem<PassiveItem>();
             passive.CanBeDropped = true;
-            player.startingGunIds.Add(passive.PickupObjectId);
+            player.startingPassiveItemIds.Add(passive.PickupObjectId);
             LootEngine.TryGivePrefabToPlayer(passive.gameObject, player, true);
         }
 
